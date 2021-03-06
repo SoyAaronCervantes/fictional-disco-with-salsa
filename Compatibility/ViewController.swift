@@ -59,7 +59,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
   @IBAction func tapEnLaVista() {
       view.endEditing(true)
   }
-    //////////
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector:#selector(tecladoAparece), name:UIResponder.keyboardDidShowNotification, object: nil)
@@ -139,6 +139,5 @@ class ViewController: UIViewController, UITextFieldDelegate {
     return true
 
   }
-
 }
 

@@ -83,6 +83,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       }
     return false
   }
+  
+  
+  func personByState(_ state: String ) -> [Person] {
+
+    let fetchRequest = NSFetchRequest<Person>( entityName: "Person" )
+
+    var people = [Person]()
+
+    let filter = NSPredicate(format: "state == %@", state )
+
+    fetchRequest.predicate = filter
+
+    do {
+
+      people = try persistentContainer.viewContext.fetch( fetchRequest )
+
+    }
+
+    catch {
+
+      let nserror = error as NSError
+      fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+
+    }
+
+    return people
+
+  }
+
 
 }
 
